@@ -1,0 +1,182 @@
+<!-- Joel Boudreaux -->
+<!-- for Bay Valley Tech Code Academy 2020 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel= "stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
+    <style>
+        body
+        {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+        }
+
+        .flexBox
+        {
+            align-items: center;
+            display: flex;
+            background-attachment: fixed;
+            background-image: linear-gradient(205deg, #A0C4FF, #CAFFBF);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            justify-content: center;
+            width: 100vw;
+        }
+        
+        #wrapper
+        {
+            background-color: rgba(53, 53, 53, 0.7);
+            border-radius: 5px;
+            box-shadow: 5px 5px 2px rgba(70, 70, 70, 0.5);
+            padding: 20px;
+            text-transform: uppercase;
+            width: 400px;
+            
+        }
+
+        h3
+        {
+            color: #101010;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .input-group
+        {
+            display: inline-flex;
+            width: 100%;
+        }
+
+        .iconWrapper
+        {
+            align-items: center;
+            background-color: #777777;
+            display: inline-flex;
+            height: 45px;
+            justify-content: center;
+            width: 45px;
+        }
+
+        .iconWrapper i
+        {
+            color: #AAAAAA;
+            font-size: 20px;
+        }
+
+        input
+        {
+           
+            background-color: rgba(53, 53, 53, 0.9);
+            border: none;
+            color: #CCCCCC;
+            height: 25px;
+            margin-bottom: 15px;
+            padding: 10px;
+            width: calc(100% - 45px);
+        }
+
+        .pwInput input
+        {
+            width: calc(100% - 90px);
+        }
+
+        input::placeholder
+        {
+            color: #707070;
+        }
+
+        button
+        {
+            background-color: #252525;
+            border: none;
+            color: #606060;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 15px;
+            padding: 10px;
+            width: 90%;
+            text-transform: uppercase;
+        }
+
+        #forgotPassword
+        {
+            color: #101010;
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+        hr
+        {
+            background-color: #AAAAAA;
+            border: none;
+            height: 2px;
+            margin: 20px 0 20px 0;
+        }
+    </style>
+</head>
+
+    <body>
+        <div class= "flexBox">
+            <div id = "wrapper">
+                <h3>Member Login</h3>
+
+                <div class = "input-group">
+                    <div class = "iconWrapper">
+                        <i class = "fa fa-user"></i>
+                    </div>
+                    <input placeholder = "Username">
+                </div>
+
+                <div class = "input-group pwInput">
+                    <div class = "iconWrapper">
+                        <i class = "fa fa-lock"></i>
+                    </div>
+                    <input placeholder = "Password" type = "password">
+                    <div class= "iconWrapper">
+                        <i class = "fa fa-eye pwEye"></i>
+                    </div>  
+                </div>
+
+                <button>Login</button>
+
+                <p id = "forgotPassword">Forgot Password? 
+                    <a href = "#">click here</a>
+                    <!-- Could use a span tag to style the "click here" 
+                        if not wanting to add a link. -->
+                </p> 
+                <hr>
+                <button>Register</button>
+            </div> <!-- End wrapper -->
+        </div> <!-- End flexBox -->
+
+        <!-- Script for implementing password visibility -->
+        <script src= "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>
+            $(function()
+            {
+                $(".pwEye").on("click", function()
+                {
+                    if($(".pwInput input").attr("type") == "password")
+                    {
+                        //Makes pw visible
+                        $(".pwInput input").attr("type", "text");
+                        //Makes the eye have a slash
+                        $(".pwEye").attr("class", "fa fa-eye-slash pwEye");
+                    }
+                    else
+                    {
+                        //Makes pw invisble
+                        $(".pwInput input").attr("type", "password");
+                        //Removes eye slash
+                        $(".pwEye").attr("class", "fa fa-eye pwEye");
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
